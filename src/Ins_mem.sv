@@ -20,21 +20,17 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Inst_Mem (
-    input clk,
-  input [4:0] addr,
+module Ins_Mem (
+    //input clk,
+    input [4:0] addr,
     output reg [31:0] instruction
     //output wire [31:0] instruction
 );
-
-  
-  
-
   reg [31:0] memory[31:0];  //chnage as you like later.
 
   initial begin
-    memory[0]  = 32'h1;
-    memory[1]  = 32'h2;
+    memory[0]  = 32'b0000000_10010_10001_000_10000_0110011;
+    memory[1]  = 32'b0000000_10010_10001_000_10000_0110011;
     memory[2]  = 32'h3;
     memory[3]  = 32'h4;
     memory[4]  = 32'h5;
@@ -69,9 +65,9 @@ module Inst_Mem (
 
   // Retriving the instruction code based on the PC count
   //assign instruction = memory[addr[3:0]];
-  always @(posedge clk ) 
+  always @(*) 
   begin
-    instruction <= memory[addr[4:0]];
+    instruction = memory[addr[4:0]];
   end
 
 endmodule

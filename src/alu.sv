@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: Zigma 
-// Engineer: 
+// Engineer: Nuwan Udara
 // 
 // Create Date: 02.02.2023 14:21:28
 // Design Name: 
@@ -25,7 +25,7 @@ module alu(alu_out, eq, a_lt_b, a_lt_ub, func, A, B);
 	input [31:0] A;
 	input [31:0] B;
 	output[31:0] alu_out; 
-	output eq, a_lt_b, a_lt_ub;
+	output eq, a_lt_b, a_lt_ub;// sign?
 
 	wire add_o, sub_o, sll_o, slt_o, sltu_o, xor_o, srl_o, sra_o, or_o, and_o, alu_jalr_o;
 	
@@ -70,6 +70,6 @@ module alu(alu_out, eq, a_lt_b, a_lt_ub, func, A, B);
                 	 sra_o ? $signed(A) >>> shamt:   
                 	 or_o ? A | B :
                 	 and_o ? A & B :
-                	 alu_jalr_o ? (A + B)& 32'hFFFFFFFE : 
-                	32'b0;
+                	 alu_jalr_o ? (A + B) & 32'hFFFFFFFE : 
+                	 32'b0;
 endmodule

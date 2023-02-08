@@ -21,12 +21,12 @@
 
 
 module INPUT_SEL(
-    input         ALUSrc,       // ALUSrc is Control unit flag to select the Input, 
+    input         ALUSrc1,       // ALUSrc is Control unit flag to select the Input, 
     input  [31:0] IMMval,       // IF 1, select imm value
     input  [31:0] reg_val,      // If 0, select register out put
     output [31:0] AluInput2
     );
 
-    assign AluInput2 = ALUSrc ? IMMval:reg_val;
+    assign AluInput2 = ALUSrc1 ? IMMval:reg_val;
 
 endmodule
